@@ -48,7 +48,7 @@ required:true,
 },
 category:{
     type:String,
-    enum:['Trending','Rooms','Iconic Cities','Mountain','Castles','Amazing Pools','Campings','Farms','Arctic','Boats'],
+    enum:['Trending','Rooms','Iconic-Cities','Mountain','Castles','Amazing-Pools','Campings','Farms','Arctic','Boats'],
     required:true,
 },
 admin:{
