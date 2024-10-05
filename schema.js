@@ -7,6 +7,7 @@ listingSchema = Joi.object({
     description: Joi.string().required(),
     location: Joi.string().required(),
     country: Joi.string().required(),
+     category: Joi.string().required(),
     price:Joi.number().required().min(0),
     image: Joi.object({
         url: Joi.string().uri().allow('', null) // Allow empty strings or null
