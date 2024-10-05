@@ -1,7 +1,7 @@
 const Joi = require("joi");
 
 
-listingSchema = Joi.object({
+listingSchema = Joi.object({ 
 
     title: Joi.string().required(),
     description: Joi.string().required(),
