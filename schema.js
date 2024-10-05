@@ -5,7 +5,7 @@ listingSchema = Joi.object({
 
     title: Joi.string().required(),
     description: Joi.string().required(),
-    category: Joi.string().valid('Trending', 'Rooms', 'Iconic Cities', 'Mountain', 'Castles', 'Amazing Pools', 'Campings', 'Farms', 'Arctic', 'Doms', 'Boats').required(),
+    category: Joi.string().valid('Trending', 'Rooms', 'IconicCities', 'Mountain', 'Castles', 'AmazingPools', 'Campings', 'Farms', 'Arctic', 'Doms', 'Boats').required(),
     location: Joi.string().required(),
     country: Joi.string().required(),
     price:Joi.number().required().min(0),
