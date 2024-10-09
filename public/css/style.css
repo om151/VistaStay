@@ -200,6 +200,7 @@ align-items: space-evenly;
     border-radius: 1rem !important;
     width: 100% !important;
     object-fit: cover !important;
+    height: 20rem;
 }
 
 
@@ -226,6 +227,7 @@ align-items: space-evenly;
     opacity: 0.2;
     background-color: #f0f8ff ;
 }
+
 
 .add-btn{
     background-color: #007bff  !important;
@@ -271,11 +273,17 @@ align-items: space-evenly;
 
 /* Map */
 
+
 #map {
     height: 400px;
-    width: 80vh;
+    width: 100%; 
      }
-
+     
      .rev-card{
         background-color: #f0f8ff;
+        background-color: #f0f8ff;
+    padding: 1rem;
+    border-radius: 10px;
      }
+
+     
