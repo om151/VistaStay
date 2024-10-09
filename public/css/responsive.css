@@ -140,13 +140,13 @@ padding: 0rem 1rem !important;
 }
 
   #map {
-    height: 200px; /* Reduce the map height for small screens */
+    height: 200px;
 }
 
 /* Ensure full width for map container on small devices */
 .col-6.offset-3 {
     width: 100% !important;
-    padding-left: 0 !important;
+     padding-left: 0 !important;
     padding-right: 0 !important;
     margin-left: 0 !important;
 }
