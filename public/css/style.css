@@ -285,7 +285,7 @@ align-items: space-evenly;
     padding: 1rem;
     border-radius: 10px;
      }
-#search-form-mb{
-    display:none;
-}
+.search-mobile{
+        display: none;
+     }
      
