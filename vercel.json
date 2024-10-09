@@ -1,7 +1,7 @@
 {
   "build": {
     "env": {
-      "NODE_OPTIONS": "--legacy-peer-deps"
+      "NODE_OPTIONS": "--force"
     }
   }
 }
