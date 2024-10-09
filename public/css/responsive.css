@@ -55,29 +55,41 @@ width: 110px;
       
 
       /* index page */
+      .listing-container{
+        align-items: center;
+        justify-content: center;
+
+      }
       .listing-link{
-        height: 180px;
-        width: 180px;
+        height: 210px;
+        width: 400px;
+        
     }
       .listing-card{
-        height: 160px;
-        width: 160px;
+        height: 250px;
+        width: 330px;
     }
 
     .card-img-top{
       border-radius: 1rem !important;
       width: 100% !important;
       object-fit: cover !important;
-      height: 8.5rem !important;
+      height: 10rem !important;
+  }
+
+  .card-img-overlay{
+    width: 100% !important;
+    height: 3rem !important;
   }
 
     .card-body{
       padding: 0 !important;
+      height: auto !important;
   }
   
   .card-text{
       font-weight: 400 !important;
-      font-size: 10px;
+      font-size: 13px;
   }
 
 
@@ -91,6 +103,7 @@ width: 110px;
   
  }
  .f-info{
+  margin-top: 40px;
   height: 90px;
  }
  .f-info-social i{
@@ -169,4 +182,107 @@ padding: 0rem 1rem !important;
 }
 
 
+/* error */
+.f-err{
+  
+  margin-top: 150px;
+  
 }
+.alert {
+  width: 90%; /* Adjust width as needed */
+  margin: 10px 10px; /* Center the alert */
+  padding: 13px 0px;
+}
+
+.btns .edit-btn{
+  margin: 0px;
+  width: 90px;
+  height: 39px;
+}
+.btns{
+  margin-top: 40px;
+}
+
+.col-8.offset-2{
+  width: 85%;
+  margin-left: 25px !important;
+
+}
+
+.login,.sinup{
+  padding: 10px 20px;
+}
+
+.navbar-collapse {
+    background-color: #fff; /* Custom background color for mobile */
+  }
+
+.navbar-nav {
+  flex-direction: column; /* Stack links vertically */
+  text-align: center; /* Center align text */
+}
+
+.navbar-brand {
+  font-size: 1.5rem; /* Adjust brand font size */
+}
+
+.search-inp {
+  width: 100%; /* Make search input take full width */
+  margin-bottom: 10px; /* Add space between search and button */
+}
+
+.search-btn {
+  width: 100%; /* Full width search button */
+}
+
+.navbar-toggler {
+  border: none; /* Optional: remove border around the button */
+}
+
+.navbar-toggler-icon {
+  font-size: 1.2rem; /* Make the toggle icon slightly larger */
+}
+
+.collapse-btn .btn {
+  width: 100%; /* Make buttons take full width on mobile */
+  margin-bottom: 10px; /* Add space between buttons */
+}
+
+.margRight {
+  margin-right: 0; /* Remove margin for better alignment on mobile */
+}
+
+.nav-link-wh, .nav-link-bl {
+  font-size: 0.9rem; /* Adjust font size of links for mobile */
+}
+.search-desk,.explore{
+  display: none;
+}
+.collapse-btn{
+  margin-top: 10px;
+}
+.search-mobile{
+  display: inline;
+}
+
+
+
+
+.search-mobile{
+  width: 232px;
+  margin-top: 5px;
+}
+
+.search-mobile input{
+  /* width: auto; */
+  padding: 8px 10px;
+}
+
+.search-mobile button{
+ /* padding: 0px 5px; */
+ width: 46px;
+ height: 40px;
+}
+
+}
+
