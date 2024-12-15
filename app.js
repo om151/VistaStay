@@ -19,22 +19,28 @@ const LocalStrategy = require("passport-local")
 const User = require("./models/user.js")
 const dbUrl = process.env.ATLASDB_URL;
 
+const Razorpay = require('razorpay');
+
+const razorpayInstance = new Razorpay({
+    key_id: 'rzp_test_wDrzOVw7ozuX6i', // Replace with your Key ID
+    key_secret: 'sb6HJOHAhCgTDyzgpPNvwPIc', // Replace with your Key Secret
+});
 
 
-const store = MongoStore.create({
-    mongoUrl: dbUrl,
-    crypto:{
-        secret:process.env.SECRET,
-    },
-    touchAfter: 24*3600,
-})
+// const store = MongoStore.create({
+//     mongoUrl: dbUrl,
+//     crypto:{
+//         secret:process.env.SECRET,
+//     },
+//     touchAfter: 24*3600,
+// })
 
-store.on("error",()=>{
-    console.log("error in mongo session store",err)
-})
+// store.on("error",()=>{
+//     console.log("error in mongo session store",err)
+// })
 
 const  sessionOption= {
-    store,
+    // store,
     secret:process.env.SECRET,
     resave: false,
     saveUninitialized:true,
@@ -59,9 +65,19 @@ app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
+app.use(express.json()); // Parse JSON request bodies
 
 
 
+
+
+
+async function main (){
+//     await mongoose.connect(dbUrl).then(() => console.log('MongoDB connected'))
+// .catch(err => console.error('MongoDB connection error:', err));
+
+await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust")
+}
 
 
 
@@ -74,12 +90,6 @@ main()
     console.log(err);
 })
 
-
-
-async function main (){
-    await mongoose.connect(dbUrl).then(() => console.log('MongoDB connected'))
-.catch(err => console.error('MongoDB connection error:', err));
-}
 
 
 
@@ -109,24 +119,30 @@ app.use((req,res,next)=>{
 })
 
 
-// app.get("/demouser", async(req,res)=>{
-//     let fakeUser = new User({
-//         email:  "student@gmail.com",
-//         username:"delta-user",
-//     })
-
-
-//    let registeredUser =  await User.register(fakeUser,"helloworld")
-//    res.send(registeredUser);
-// })
-// app.get("/",(req,res)=>{
-//     // res.send("hi i am root")
-//  res.render("listing/home.ejs")
-// })
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/review",reviewsRouter)
 app.use("/",userRouter)
 
+app.post('/book-now', async (req, res) => {
+
+    const { amount } = req.body;
+    if (!amount) {
+        return res.status(400).json({ error: 'Amount is required' });
+    }
+    const options = {
+        amount: amount * 100, // Amount in paise
+        currency: 'INR',
+        receipt: `receipt_${Date.now()}`, // Unique receipt ID
+    };
+
+    try {
+        const order = await razorpayInstance.orders.create(options);
+        res.json(order);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Something went wrong');
+    }
+});
 
 
 app.all("*",(req,res,next)=>{

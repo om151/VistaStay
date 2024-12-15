@@ -21,6 +21,24 @@
         </p>
         <p class="card-text"><%= listing.location%> <br /></p>
         <p class="card-text"><%= listing.country%> <br /></p>
+
+        <% if(currUser){ %>
+         
+
+          <div>
+            <label for="fromDate">From:</label>
+          <input type="date" id="fromDate" name="fromDate" required />
+      &nbsp;
+          <label for="toDate">To:</label>
+          <input type="date" id="toDate" name="toDate" required />
+          </div>
+ 
+      <button class="card-btn" id="payButton">Book now</button>
+        
+         
+        <% }%>
+
+
       </div>
     </div>
 
@@ -140,3 +158,117 @@
 
 
 <script src="/js/map.js"></script>
+
+
+<script>
+  
+
+
+  const fromDateInput = document.getElementById('fromDate');
+          const toDateInput = document.getElementById('toDate');
+  
+          fromDateInput.addEventListener('change', () => {
+              const fromDate = fromDateInput.value;
+              toDateInput.setAttribute('min', fromDate); // Prevent selecting a date before "From Date"
+          });
+          let diffDays = 0;
+  
+  
+  
+            
+          toDateInput.addEventListener('input', calculateDays);
+          fromDateInput.addEventListener('input', calculateDays);
+  
+          function calculateDays() {
+              const fromDate = fromDateInput.value;
+              const toDate = toDateInput.value;
+  
+              const bookingDate = {
+    fromDate: fromDate,
+                toDate: toDate,
+                totalDays: diffDays,
+            };
+  
+  
+              if (fromDate && toDate) {
+                  const startDate = new Date(fromDate);
+                  const endDate = new Date(toDate);
+  
+                  if (endDate >= startDate) {
+                      const diffTime = endDate - startDate;
+                       diffDays = diffTime / (1000 * 60 * 60 * 24); // Convert milliseconds to days
+                       bookingDate = {
+                  fromDate: fromDate,
+                  toDate: toDate,
+                  totalDays: diffDays,
+              };
+                      console.log(diffDays);
+                     
+                  } else {
+                      alert('The "To" date must be after the "From" date.');
+                     
+                  }
+              }
+          }
+  
+  
+  
+          
+  const payButton = document.getElementById('payButton');
+  payButton.addEventListener('click', async () => {
+  
+  
+  
+  
+      try {
+        
+  
+        
+        // console.log(currUser);
+          const response = await fetch('/book-now', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ amount:  diffDays * listing.price }), // Amount in INR
+          });
+  
+          if (!response.ok) throw new Error('Failed to create order');
+  
+          const order = await response.json();
+          console.log('Order created:', order);
+  
+          
+          // Initiate Razorpay payment
+          const options = {
+              key: 'rzp_test_wDrzOVw7ozuX6i', // Replace with your Razorpay Key ID
+              amount: order.amount,
+              currency: 'INR',
+              name: 'My Website',
+              description: 'Test transaction',
+              order_id: order.id,
+              handler: function (response) {
+                  alert(`Payment successful: ${response.razorpay_payment_id}`);
+              },
+              prefill: {
+                  name: " <%= currUser ? currUser.username : ' ' %>",
+                  email: " <%= currUser ?  currUser.email : ' ' %>",
+                  contact: '9999999999',
+              },
+              theme: {
+                  color: '#3399cc',
+              },
+          };
+  
+          const rzp = new Razorpay(options);
+          rzp.open();
+      } catch (error) {
+  
+          console.error('Error:', error);
+          alert('Something went wrong. Please try again.');
+      }
+  });
+  
+          
+  
+  </script>
