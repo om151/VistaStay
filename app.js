@@ -27,20 +27,20 @@ const razorpayInstance = new Razorpay({
 });
 
 
-// const store = MongoStore.create({
-//     mongoUrl: dbUrl,
-//     crypto:{
-//         secret:process.env.SECRET,
-//     },
-//     touchAfter: 24*3600,
-// })
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    crypto:{
+        secret:process.env.SECRET,
+    },
+    touchAfter: 24*3600,
+})/////////////////////////
 
-// store.on("error",()=>{
-//     console.log("error in mongo session store",err)
-// })
+store.on("error",()=>{
+    console.log("error in mongo session store",err)
+})/////////////////////////
 
 const  sessionOption= {
-    // store,
+    store,///////
     secret:process.env.SECRET,
     resave: false,
     saveUninitialized:true,
@@ -73,10 +73,10 @@ app.use(express.json()); // Parse JSON request bodies
 
 
 async function main (){
-//     await mongoose.connect(dbUrl).then(() => console.log('MongoDB connected'))
-// .catch(err => console.error('MongoDB connection error:', err));
+    await mongoose.connect(dbUrl).then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
 
-await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust")
+// await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust")
 }
 
 
