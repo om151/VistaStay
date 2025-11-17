@@ -48,7 +48,8 @@ module.exports.showListing = async (req, res) => {
 module.exports.createListing = async (req, res, next) => {
 
 
-  const admin = "66fed9ea13c17cbdaa14d807";
+  // const admin = "66f1a30b7ff32fd8433e50e0";  //For local
+  const admin = "66fffdcb433adce3efaa7a1c";
     let response = await geocodingClient.forwardGeocode({
     query: req.body.listing.location,
     limit: 1

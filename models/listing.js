@@ -48,7 +48,8 @@ required:true,
 },
 category:{
     type:String,
-    enum:['Trending','Rooms','Cities','Mountain','Castles','Pools','Campings','Farms','Arctic','Boats'],
+    enum:['Trending','Rooms','Cities','Mountain','Castles','Pools','Campings','Farms','Arctic','Boats','Amazing Pools','Iconic Cities'],
+    // enum:['Mountain Resorts','Hill Resorts','Yoga','Historical','Adventure','Heritage','Beachfront','Backwaters','Palace Hotels"'],
     required:true,
 },
 admin:{

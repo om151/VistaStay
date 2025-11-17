@@ -15,7 +15,8 @@ const sampleListings= [
       "type": "Point",
       "coordinates": [-74.006, 40.7128]
     },
-    "category": "Trending"
+    "category": "Trending",
+    "admin": "66f1a30b7ff32fd8433e50e0"
   },
   {
     "title": "Mountain Retreat",
@@ -33,7 +34,8 @@ const sampleListings= [
       "type": "Point",
       "coordinates": [-106.8175, 39.1911]
     },
-    "category": "Mountain"
+    "category": "Mountain",
+    "admin": "66f1a30b7ff32fd8433e50e0"
   },
   {
     "title": "Ocean View Villa",
@@ -51,7 +53,8 @@ const sampleListings= [
       "type": "Point",
       "coordinates": [-118.6682, 34.0259]
     },
-    "category": "Rooms"
+    "category": "Rooms",
+    "admin": "66f1a30b7ff32fd8433e50e0"
   },
   {
     "title": "Castle on the Hill",
@@ -69,7 +72,8 @@ const sampleListings= [
       "type": "Point",
       "coordinates": [-3.8269, 55.9445]
     },
-    "category": "Castles"
+    "category": "Castles",
+    "admin": "66f1a30b7ff32fd8433e50e0"
   },
   {
     "title": "Amazing Poolside Resort",
@@ -87,7 +91,8 @@ const sampleListings= [
       "type": "Point",
       "coordinates": [-80.1918, 25.7617]
     },
-    "category": "Amazing Pools"
+    "category": "Amazing Pools",
+    "admin": "66f1a30b7ff32fd8433e50e0"
   },
   {
     "title": "Charming Farm Stay",
@@ -105,7 +110,8 @@ const sampleListings= [
       "type": "Point",
       "coordinates": [-122.2869, 38.2975]
     },
-    "category": "Farms"
+    "category": "Farms",
+    "admin": "66f1a30b7ff32fd8433e50e0"
   },
   {
     "title": "Arctic Adventure Lodge",
@@ -123,7 +129,8 @@ const sampleListings= [
       "type": "Point",
       "coordinates": [18.956, 69.6496]
     },
-    "category": "Arctic"
+    "category": "Arctic",
+    "admin": "66f1a30b7ff32fd8433e50e0"
   },
   {
     "title": "Luxury Boat Stay",
@@ -141,7 +148,8 @@ const sampleListings= [
       "type": "Point",
       "coordinates": [25.4308, 36.3932]
     },
-    "category": "Boats"
+    "category": "Boats",
+    "admin": "66f1a30b7ff32fd8433e50e0"
   },
   {
     "title": "Serene Camping Grounds",
@@ -159,7 +167,8 @@ const sampleListings= [
       "type": "Point",
       "coordinates": [-119.5383, 37.8651]
     },
-    "category": "Campings"
+    "category": "Campings",
+    "admin": "66f1a30b7ff32fd8433e50e0"
   },
   {
     "title": "Iconic City Hotel",
@@ -177,7 +186,8 @@ const sampleListings= [
       "type": "Point",
       "coordinates": [2.3522, 48.8566]
     },
-    "category": "Iconic Cities"
+    "category": "Iconic Cities",
+    "admin": "66f1a30b7ff32fd8433e50e0"
   },
   {
     "title": "Desert Oasis Resort",
@@ -195,7 +205,8 @@ const sampleListings= [
       "type": "Point",
       "coordinates": [55.2708, 25.2048]
     },
-    "category": "Trending"
+    "category": "Trending",
+    "admin": "66f1a30b7ff32fd8433e50e0"
   },
 ]
 

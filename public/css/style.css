@@ -289,3 +289,10 @@ align-items: space-evenly;
         display: none;
      }
      
+
+
+     #payButton{
+        padding: 0.4rem 1rem;
+        border-radius: 2rem;
+        margin-top: 0.4rem;
+     }
